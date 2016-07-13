@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapping">
+
+ <resultMap id="indexList" type="com.mott.po.IndexInfo">
+ 	<result property="zqmc" column="zqmc"/>
+ 	<result property="zqdm" column="zqdm"/>
+ 	<result property="xldm" column="typecode"/>
+ 	<result property="xlmc" column="typename"/>
+ </resultMap>
+ <select id="selectALLIndex" resultMap="indexList">
+  <![CDATA[
+	  select a.zqdm,a.zqmc,'119' || c.history_code_rmk typecode ,  
+	   c.typename
+	  from QQZQZB a, s_transcode_data b, datadict c
+	 where a.hmzqdm = b.obj_value
+	   and b.target_value = c.history_code_rmk
+	   and c.type = '501001' /*and c.is_valid = '0' */
+	   and b.trans_code = '021'
+	   and a.zqlb = '2'
+	   order by zqdm
+   ]]>
+ </select>
+</mapper>
