@@ -77,6 +77,6 @@
 	   <constructor-arg index="0" ref="sqlSessionFactory" />
 	   <constructor-arg index="1" value="BATCH" /> <!--  如果想要进行批量操作可加入这个属性 -->
 	  </bean>
- 	<bean id="indexDAO" class="com.mott.dao.IndexDAO">   
- 	</bean>
+ 	<bean id="indexDAO" class="com.mott.dao.IndexDAO" />  
+ 	<bean id="commDAO" class="com.mott.dao.CommDAO" /> 
  </beans>  
