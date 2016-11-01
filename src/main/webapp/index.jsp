@@ -67,8 +67,8 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 数据推送<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a _href="datapush/conn.jsp" data-title="连接配置" href="javascript:void(0)">数据连接配置</a></li>
-					<li><a _href="v2.3/article-list.html" data-title="资讯管理" href="javascript:void(0)">推送规则配置</a></li>
+					<li><a _href="dslist.html" data-title="连接配置" href="javascript:void(0)">数据连接配置</a></li>
+					<li><a _href="templatelist.html" data-title="推送模板管理" href="javascript:void(0)">推送规则配置</a></li>
 				</ul>
 			</dd>
 		</dl>

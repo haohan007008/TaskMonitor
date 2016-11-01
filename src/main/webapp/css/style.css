@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* 你自己的样式 */
+
+.breadcrumb1{border-bottom: 1px solid #E5E5E5;background-color:#f5f5f5;line-height: 30px; height:34px;padding-left:10px;overflow:hidden}
+.breadcrumb1 span{padding:0 5px}

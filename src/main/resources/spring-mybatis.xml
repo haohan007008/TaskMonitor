@@ -79,4 +79,6 @@
 	  </bean>
  	<bean id="indexDAO" class="com.mott.dao.IndexDAO" />  
  	<bean id="commDAO" class="com.mott.dao.CommDAO" /> 
+ 	<bean id="dsDAO" class="com.mott.dao.DSConfDAO" /> 
+ 	<bean id="dtDAO" class="com.mott.dao.DataTemplateDAO" /> 
  </beans>  
