@@ -26,10 +26,10 @@
 <title>图片列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 数据推送 <span class="c-gray en">&gt;</span> 连接管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 数据推送 <span class="c-gray en">&gt;</span> 模板管理<a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="pd-20">
 	
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="picture_add('添加连接','datapush/template_add.jsp')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加连接</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="picture_add('添加模板','${pageContext.request.contextPath}/datapush/newtemplate.html')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加模板</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
@@ -61,7 +61,7 @@
 					<td>${p.description}</td>
 					<td>${p.createTime}</td>
 					<td class="td-manage">
-						<a style="text-decoration:none" class="ml-5" onClick="picture_edit('编辑','${pageContext.request.contextPath}/datapush/getds.html?dtId=${p.tempId}','${p.tempId}')" href="javascript:;" title="编辑">
+						<a style="text-decoration:none" class="ml-5" onClick="picture_edit('编辑','${pageContext.request.contextPath}/datapush/gettemplatebyid.html?dtId=${p.tempId}','${p.tempId}')" href="javascript:;" title="编辑">
 						<i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="picture_del(this,'${p.tempId}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				</c:forEach>

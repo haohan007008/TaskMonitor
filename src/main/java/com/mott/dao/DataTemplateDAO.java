@@ -15,7 +15,7 @@ public class DataTemplateDAO extends CommDAO{
 	public int addDataTemplate(DataTemplate dataTemplate){
 		StringBuffer sb = new StringBuffer();
 		sb.append("insert into pubconfig.t_das_data_template "
-				+ "(id,system,name,source,query,queue,status,max_zlid,description,create_time)values(");
+				+ "(id,system,name,source,query,queue,status,max_zlid,description,create_time,modify_time)values(");
 		
 		sb.append(this.getDataValue("select max(id)+1 from pubconfig.t_das_data_template") +",");
 		sb.append("'"+dataTemplate.getSysName() +"',");
@@ -26,7 +26,7 @@ public class DataTemplateDAO extends CommDAO{
 		sb.append(dataTemplate.getStatus() +",");
 		sb.append(dataTemplate.getMaxzlID()+",");
 		sb.append("'"+dataTemplate.getDescription()+"',");
-		sb.append("sysdate" );
+		sb.append("sysdate,sysdate" );
 		sb.append(")");
 		System.out.println(sb.toString());
 		
@@ -41,7 +41,7 @@ public class DataTemplateDAO extends CommDAO{
 		sb.append("source='"+dataTemplate.getSrcConn() +"',");
 		sb.append("query ='"+dataTemplate.getTemplateSql() +"',");
 		sb.append("queue='"+dataTemplate.getQueueName() +"',");
-		sb.append("status="+dataTemplate.getStatus() +"',");
+		sb.append("status="+dataTemplate.getStatus() +",");
 		sb.append("max_zlid="+dataTemplate.getMaxzlID() +",");
 		sb.append("description='"+dataTemplate.getDescription() +"',");
 		sb.append("modify_time=sysdate" );

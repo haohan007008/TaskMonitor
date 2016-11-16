@@ -1096,15 +1096,16 @@ table.dataTable thead .sorting_desc {background-image:url(../images/sort_desc.pn
 */
 /*3.4.1 input,textarea 文本域 文本区域*/
 /*默认状态*/
-.input-text,.textarea{box-sizing:border-box;border:solid 1px #ddd;width:100%;
+.input-text,.textarea,.textarea1{box-sizing:border-box;border:solid 1px #ddd;width:100%;
     -webkit-transition:all 0.2s linear 0s;
        -moz-transition:all 0.2s linear 0s;
          -o-transition:all 0.2s linear 0s;
             transition:all 0.2s linear 0s}
-.textarea{ height:100px; resize:none; font-size:14px; padding:4px}
+.textarea{ height:200px; resize:none; font-size:14px; padding:4px}
+.textarea1{ height:200px; resize:none; font-size:14px; padding:4px}
 	.textarea-numberbar{ position:absolute; right:20px; bottom:5px; z-index:1; margin-bottom:0}
 	.textarea-length{ font-style:normal}
-.input-text:hover,.textarea:hover{border: solid 1px #3bb4f2}
+.input-text:hover,.textarea:hover,.textarea1:hover{border: solid 1px #3bb4f2}
 /*得到焦点后*/
 .input-text.focus,textarea.focus{border:solid 1px #0f9ae0 \9;border-color:rgba(82,168,236,0.8);box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)}
 /*不可点击*/

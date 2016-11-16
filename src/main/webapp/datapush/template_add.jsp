@@ -32,42 +32,64 @@
 		<div class="row cl">
 			<label class="form-label col-2"><span class="c-red">*</span>模板名称：</label>
 			<div class="formControls col-9">
-				<input type="hidden" value="${dsconf.dsId}" placeholder="" id="dsId" name="dsId">
-				<input type="text" class="input-text" value="${dsconf.dsName}" placeholder="" id="dsName" name="dsName">
+				<input type="hidden" value="${template.tempId}" placeholder="" id="tempId" name="tempId">
+				<input type="text" class="input-text" value="${template.templateName}" placeholder="" id="templateName" name="templateName">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-2">系统：</label>
 			<div class="formControls col-4">
-				<input type="text" name="userName" id="userName" placeholder="" value="${dsconf.userName}" class="input-text" style="width:90%">
+				<input type="text" name="sysName" id="sysName" placeholder="CC?CRM?EC?DS?" value="${template.sysName}" class="input-text" style="width:90%">
 				</div>
 			<label class="form-label col-2">数据源：</label>
 			<div class="formControls col-3">
-				<input type="text" name="passwd" id="passwd" placeholder="" value="${dsconf.passwd}" class="input-text" style="width:90%">
-				</div>
+				<span class="select-box">
+				  <select class="select" size="1" name="status">
+				    <option value="1" selected>主动推送</option>
+				    <option value="3">被动请求</option>
+				    <option value="9">公募组合</option>
+				    <option value="-1">未知</option>
+				  </select>
+				</span></div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-2">目标队列名称：</label>
 			<div class="formControls col-4">
-				<input type="text" name="userName" id="userName" placeholder="" value="${dsconf.userName}" class="input-text" style="width:90%">
+				<input type="text" name="queueName" id="queueName" placeholder="Q_EC_01" value="${template.queueName}" class="input-text" style="width:90%">
 				</div>
 			<label class="form-label col-2">类型：</label>
 			<div class="formControls col-3">
-				<input type="text" name="passwd" id="passwd" placeholder="" value="${dsconf.passwd}" class="input-text" style="width:90%">
+				<span class="select-box">
+				  <select class="select" size="1" name="srcConn">
+				  	<c:forEach items="${dslist}" var="p">
+				     	<option value="${p.dsName}" <c:if test="${template.srcConn == p.dsName}">selected</c:if>>${p.dsName}</option>
+				  	</c:forEach>
+				  </select>
+				</span>
+				</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-2">增量偏移ID：</label>
+			<div class="formControls col-4">
+				<input type="text" name="maxzlID" id="maxzlID" placeholder="" value="${template.maxzlID}" class="input-text" style="width:100%">
+				
+				</div>
+			<div class="formControls col-4">
+				<button id="cfg_btn" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 脚本配置</button>
 				</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-2">脚本：</label>
 			<div class="formControls col-9">
-				<textarea name="" cols="" rows="20" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+				<textarea name="templateSql" cols="" rows="20" class="textarea" style="height:250px"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,2048)">${template.templateSql}</textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/2048</p>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-2">备注：</label>
-			<div class="formControls col-10">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)"></textarea>
+			<div class="formControls col-9">
+				<textarea name="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
@@ -100,7 +122,7 @@ $(function(){
 			//$('#save_submit').attr('disabled',"true");
 			$.ajax({
 			    type:'post',
-			    url:'${pageContext.request.contextPath}/datapush/addds.html',
+			    url:'${pageContext.request.contextPath}/datapush/addtemplate.html',
 			    dataType: 'json',
 			    data: $('#form-article-add').serialize(),
 			    success:function(result){
@@ -113,7 +135,16 @@ $(function(){
 			    }
 			});
 	});
-
+	
+	$('#cfg_btn').on('click', function() {
+		var index = layer.open({
+			type: 2,
+			title: '脚本配置',
+			content: 'http://www.baidu.com'
+		});
+		layer.full(index);
+	});
+	
 });
 </script>
 </body>

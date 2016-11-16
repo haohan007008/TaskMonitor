@@ -19,7 +19,11 @@ public class DataTemplate  implements Serializable{
 	private String createTime;
 	private String modifyTime;
 	private String statusName;
+	private long maxzlID;
 	
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
 	public int getTempId() {
 		return tempId;
 	}
@@ -49,7 +53,7 @@ public class DataTemplate  implements Serializable{
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	private long maxzlID;
+	
 	public long getMaxzlID() {
 		return maxzlID;
 	}

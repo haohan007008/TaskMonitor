@@ -69,6 +69,7 @@
 				<ul>
 					<li><a _href="dslist.html" data-title="连接配置" href="javascript:void(0)">数据连接配置</a></li>
 					<li><a _href="templatelist.html" data-title="推送模板管理" href="javascript:void(0)">推送规则配置</a></li>
+					<li><a _href="kanban/kanban.jsp" data-title="看板" href="javascript:void(0)">看板</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -162,7 +163,7 @@
 		</dl>
 		</div>		
 </aside>
-<div class="dislpayArrow"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+
 <section class="Hui-article-box">
 	<div id="Hui-tabNav" class="Hui-tabNav">
 		<div class="Hui-tabNav-wp">
